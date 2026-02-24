@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./static:/app/static
+    # Optional: pass your API key via env here if you want to hardcode it in prod
+    # environment:
+    #   - GEMINI_API_KEY=${GEMINI_API_KEY}
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "8501:8501"
+    environment:
+      # Streamlit needs to know where the backend is in the Docker network
+      - API_URL=http://backend:8000
+    depends_on:
+      - backend
