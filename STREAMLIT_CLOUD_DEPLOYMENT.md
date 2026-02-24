@@ -2,14 +2,14 @@
 
 Since you want to deploy directly to **Streamlit Community Cloud**, you do **not** need Docker or the FastAPI backend. Streamlit Cloud can run the entire application natively! 
 
-We have refactored the app into a single file at the root: `app.py`.
+We have refactored the app into a single file at the root: `streamlit_app.py`.
 
 ## Step-by-Step Deployment Guide
 
 1. **Push your code to GitHub**
    Streamlit Cloud deploys directly from a public (or private) GitHub repository. 
    - Initialize git in this folder: `git init`
-   - Add files: `git add app.py requirements.txt data/titanic.csv`
+   - Add files: `git add streamlit_app.py requirements.txt data/titanic.csv`
    - Commit: `git commit -m "init titanic bot"`
    - Create a repository on GitHub and push these files to it.
 
@@ -21,7 +21,7 @@ We have refactored the app into a single file at the root: `app.py`.
    - Click **New app** -> **Deploy a public app from GitHub**.
    - **Repository:** Select the repository you just created.
    - **Branch:** `main` (or `master`)
-   - **Main file path:** `app.py`
+   - **Main file path:** `streamlit_app.py`
    - Click **Deploy!**
 
 4. **Wait for Build**
